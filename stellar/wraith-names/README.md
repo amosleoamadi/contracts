@@ -2,6 +2,8 @@
 
 Soroban contract mapping `.wraith` names to 64-byte stealth meta-addresses.
 
+Error codes are tracked in the [Stellar error catalog](../ERRORS.md#wraith-names), including the [auction subsystem](../ERRORS.md#wraith-names-auctions).
+
 Core features:
 
 - **Register / update / release** — names are 3-32 chars, lowercase

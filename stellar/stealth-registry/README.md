@@ -2,6 +2,8 @@
 
 The `stealth-registry` contract manages the storage and resolution of stealth meta-addresses (`spending_pubkey || viewing_pubkey`) on Soroban.
 
+Error codes are tracked in the [Stellar error catalog](../ERRORS.md#stealth-registry).
+
 ## Formal Verification with Kani
 
 Formal verification harnesses are located in `src/proofs/mod.rs` and can be verified using [Kani](https://model-checking.github.io/kani/).

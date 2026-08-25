@@ -15,6 +15,8 @@ This directory contains the Soroban smart contracts for the Wraith multichain st
 - `wraith-names`: Privacy-preserving name registry for `.wraith` names. [README](./wraith-names/README.md)
 - `contracts/governance`: Token-weighted governance (PoC, not production ready). [README](./contracts/governance/README.md)
 
+See [`ERRORS.md`](./ERRORS.md) for the Stellar contract error-code catalog and allocation policy.
+
 ## Prerequisites
 
 - [Rust](https://rustup.rs/) and `wasm32-unknown-unknown` target.

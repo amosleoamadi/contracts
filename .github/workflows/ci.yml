@@ -95,6 +95,60 @@ jobs:
           components: rustfmt
 
       - run: cargo fmt --all --check
+      - name: Check Stellar error catalog
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+
+          root = Path('.')
+          doc = Path('ERRORS.md').read_text(encoding='utf-8')
+          missing = []
+
+          for path in sorted(root.glob('**/*.rs')):
+              parts = set(path.parts)
+              if {'bench', 'bench-crossover', 'fuzz', 'integration-tests'} & parts:
+                  continue
+
+              lines = path.read_text(encoding='utf-8').splitlines()
+              i = 0
+              while i < len(lines):
+                  if 'contracterror' not in lines[i]:
+                      i += 1
+                      continue
+
+                  j = i + 1
+                  while j < len(lines) and 'pub enum ' not in lines[j]:
+                      j += 1
+                  if j == len(lines):
+                      i += 1
+                      continue
+
+                  match = re.search(r'pub enum\s+([A-Za-z0-9_]+)', lines[j])
+                  if not match:
+                      i = j + 1
+                      continue
+                  enum_name = match.group(1)
+
+                  brace_depth = lines[j].count('{') - lines[j].count('}')
+                  k = j + 1
+                  while k < len(lines) and brace_depth > 0:
+                      line = lines[k]
+                      variant = re.match(r'\s*([A-Za-z][A-Za-z0-9_]*)\s*=\s*\d+\s*,', line)
+                      if variant:
+                          token = f'{enum_name}::{variant.group(1)}'
+                          if token not in doc:
+                              missing.append(f'{path}:{k + 1}: {token}')
+                      brace_depth += line.count('{') - line.count('}')
+                      k += 1
+                  i = k
+
+          if missing:
+              print('ERRORS.md is missing contracterror variants:')
+              print('\n'.join(missing))
+              sys.exit(1)
+          PY
       - run: cargo test --workspace
       - name: Run stellar resource benches
         run: |

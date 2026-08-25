@@ -133,3 +133,5 @@ Tests cover:
 - Policy allowlist flow (add, check, remove)
 - Initialize with default assets
 - Double initialization rejection
+
+Error codes and panic-only coverage status are tracked in the [Stellar error catalog](../ERRORS.md#wraith-asset-policy).

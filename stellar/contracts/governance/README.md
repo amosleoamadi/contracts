@@ -295,3 +295,5 @@ Tests cover:
 - Timelock enforcement
 - Config retrieval
 - Double-init rejection
+
+Error codes are tracked in the [Stellar error catalog](../../ERRORS.md#governance).

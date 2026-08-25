@@ -261,3 +261,5 @@ The proofs live in `src/proofs/mod.rs` and run against the real `claim` /
 `refund` / `refund_permissionless` bodies, compiled against `src/mock_sdk.rs` in
 place of `soroban-sdk`. See [AUDIT_SUMMARY.md](./AUDIT_SUMMARY.md) for what the
 model assumes.
+
+Error codes are tracked in the [Stellar error catalog](../ERRORS.md#stealth-vault).

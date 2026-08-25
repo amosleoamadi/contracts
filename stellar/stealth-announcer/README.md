@@ -83,3 +83,5 @@ Tests cover:
 - View tag bucket derivation from first metadata byte
 - Rejection of v1 scheme ID
 - Rejection of missing view tag (empty metadata)
+
+Error codes and panic-only coverage status are tracked in the [Stellar error catalog](../ERRORS.md#stealth-announcer).

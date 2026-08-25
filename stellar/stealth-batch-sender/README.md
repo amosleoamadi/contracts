@@ -112,3 +112,5 @@ Tests cover:
 - Positive amount validation
 - Non-empty ephemeral_pub_key validation
 - Metric event emission
+
+Error codes and panic-only coverage status are tracked in the [Stellar error catalog](../ERRORS.md#stealth-batch-sender).
