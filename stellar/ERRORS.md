@@ -78,6 +78,9 @@ No `#[contracterror]` enum is defined. This contract is currently panic-only; is
 | 5 | [`VaultError::NotYetUnlocked`](stealth-vault/src/lib.rs#L37) | Claim attempted before the unlock ledger. | pre-catalog |
 | 6 | [`VaultError::NotYetRefundable`](stealth-vault/src/lib.rs#L38) | Refund attempted before the refund ledger. | pre-catalog |
 | 7 | [`VaultError::WrongRecipient`](stealth-vault/src/lib.rs#L39) | Claim signer does not match the deposit recipient. | pre-catalog |
+| 8 | [`VaultError::Paused`](stealth-vault/src/lib.rs#L98) | Vault operations are paused. | PR #169 |
+| 9 | [`VaultError::NotYetPermissionless`](stealth-vault/src/lib.rs#L100) | Operation attempted before the permissionless threshold has elapsed. | PR #169 |
+| 10 | [`VaultError::InvalidGracePeriod`](stealth-vault/src/lib.rs#L102) | Specified grace period parameter is invalid. | PR #169 |
 
 ## stealth-splitter
 
